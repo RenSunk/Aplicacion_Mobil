@@ -1,25 +1,48 @@
 import React, { useState } from "react"
 import { View, Text, StyleSheet, Image } from "react-native"
 import Navigation from "./Componente/Navigation"
-import ListaTargeta from "./Componente/ListaTragetas"
+import Inicio from "./Page/Inicio"
+import Usuario from "./Page/Usuario"
+import Chat from "./Page/Chat"
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
 
 const App = () => {
+  const ref = React.useRef(null);
+
   return (
     <View style={styles.contenedor} >
-      
-      <View style={styles.container}>
 
-        <Text style={{color:"white", fontSize:20}}> Servicios </Text>
-      </View>
+    <NavigationContainer ref={ref}  >
 
-      <View style={ styles.linea} />
+      <MyStack/>
 
-      <ListaTargeta />
+      <Navigation r={ref} />
 
-      <Navigation />
+    </NavigationContainer>
 
+    
+    
+    
     </View>
   )
+}
+
+/*
+
+*/
+
+function MyStack() {
+  return (
+    <Stack.Navigator headerMode="none">
+      <Stack.Screen name="Inicio" component={Inicio} />
+      <Stack.Screen name="Usuario" component={Usuario} />
+      <Stack.Screen name="Chat" component={Chat} />
+    </Stack.Navigator>
+  );
 }
 
 const styles = StyleSheet.create({

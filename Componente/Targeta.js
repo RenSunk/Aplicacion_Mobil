@@ -22,8 +22,8 @@ const styles = StyleSheet.create({
 
     imagen: {
 
-        height: 60,
-        width: 60
+        height: 40,
+        width: 40
     },
 
     targeta: {
@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
         borderColor:"#767676",
         borderWidth:3,
         marginTop: 30,
-        padding:15,
-        width: 120,
+        padding:17,
+        width: 105,
         borderRadius: 25,
         alignItems: "center",
 
