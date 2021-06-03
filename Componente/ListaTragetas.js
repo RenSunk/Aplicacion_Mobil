@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react"
-import { View, StyleSheet, ScrollView, Text } from "react-native"
+import React from "react"
+import { View, StyleSheet, ScrollView } from "react-native"
 import Targeta from "./Targeta"
-import IconTools from "../assets/IconTools.png"
 
 import IconoComputador from "../assets/Icono_Computador.png"
 import IconoLlave from "../assets/Icono_Llave.png"
@@ -12,30 +11,51 @@ import IconoElectricidad from "../assets/Icono_Electricidad.png"
 import IconoPintura from "../assets/Icono_Pintura.png"
 import IconoEscoba from "../assets/Icono_Escoba.png"
 
-const ListaTargeta = () => {
-
+const ListaTargeta = ({navigation}) => {
+    
     return (
 
-        <ScrollView>
+        <ScrollView style={{flex:1, marginBottom:20}}>
 
             <View style={styles.filas}>
-                <Targeta servicio={"Tecnicos de computadores"} imagenes={IconoComputador} />
-                <Targeta servicio={"Cerrajeros"} imagenes={IconoLlave} />
+                <Targeta 
+                    servicio={"Tecnicos de computadores"} 
+                    imagenes={IconoComputador} 
+                    navigation={navigation}
+                />
+                <Targeta 
+                    servicio={"Cerrajeros"} 
+                    imagenes={IconoLlave}
+                    navigation={navigation}
+                />
             </View>
 
             <View style={styles.filas}>
-                <Targeta servicio={"Plomeros"} imagenes={IconoSanitario} />
-                <Targeta servicio={"Electricistas"} imagenes={IconoElectricidad} />
+                <Targeta 
+                    servicio={"Plomeros"} 
+                    imagenes={IconoSanitario}
+                    navigation={navigation} 
+                />
+                <Targeta 
+                    servicio={"Electricistas"} 
+                    imagenes={IconoElectricidad} 
+                    navigation={navigation}
+                />
             </View>
             <View style={styles.filas}>
-                <Targeta servicio={"Pintores"} imagenes={IconoPintura} />
-                <Targeta servicio={"Aseadores"} imagenes={IconoEscoba} />
+                <Targeta 
+                    servicio={"Pintores"} 
+                    imagenes={IconoPintura} 
+                    navigation={navigation}
+                />
+                <Targeta 
+                    servicio={"Aseadores"} 
+                    imagenes={IconoEscoba} 
+                    navigation={navigation}
+                />
             </View>
-
         </ScrollView>
-
-
-
+        
     )
 }
 

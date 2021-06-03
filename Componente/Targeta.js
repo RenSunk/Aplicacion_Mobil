@@ -1,12 +1,18 @@
-import React from "react"
+import React,{useContext} from "react"
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native"
 
+import TrabajoContext from "../Context/TrabajoContext"
 
-const Targeta = ({ servicio, imagenes }) => {
+const Targeta = ({ servicio, imagenes, navigation }) => {
+
+    const {trabajo, settrabajo} = useContext(TrabajoContext)
 
     return (
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={ () =>{
+            navigation.navigate('Lista_Usuarios');
+            settrabajo(servicio)
+        }}>
             <View style={styles.targeta}>
                 <Image source={imagenes} style={styles.imagen} />
                 <Text style={styles.texto}>

@@ -2,9 +2,33 @@ import React from "react"
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native"
 import ListaTargeta from "../Componente/ListaTragetas"
 import Logo from "../assets/Logo.png"
-const Inicio = () => {
+
+import DataContext from "../Context/Context"
+import { useContext } from "react"
+import { useEffect } from "react/cjs/react.development"
+
+import { useIsFocused } from '@react-navigation/native';
+
+import firebase from "../Db/Firebase"
+
+const Inicio = ({navigation}) => {
+
+    
+    const isFocused = useIsFocused();
+    const {data, setdata} = useContext(DataContext)
+
+    useEffect(()=>{
+        if(isFocused){
+            setdata("Inicio")
+        }
+    },[isFocused])
+
+
+
     return (
+        
         <View style={{ backgroundColor: "#18191A", flex: 1 }}>
+
             <View style={styles.container}>
                 <View style={styles.linea} />
                 <TouchableOpacity>
@@ -15,8 +39,10 @@ const Inicio = () => {
                 <Text style={{ color: "white", fontSize: 20 }}> Servicios </Text>
             </View>
             <View style={styles.linea} />
-            <ListaTargeta />
+
+            <ListaTargeta navigation={navigation} />
         </View>
+        
     )
 }
 
@@ -38,14 +64,14 @@ const styles = StyleSheet.create({
         height: 30
     },
     linea: {
-        height: 13,
+        height: 5,
         backgroundColor: "#767676"
     },
     container: {
-        flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        marginTop:50
+        marginTop:10,
+        marginBottom:18
     },
 
 })
